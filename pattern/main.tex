@@ -1,0 +1,41 @@
+%%% Если работа выполняется в Overleaf, 
+%%% важно поменять тип компилятора
+%%% с "pdfLatex" или "Latex" на "XeLaTeX". 
+%%% Если этого не сделать, то и и компиляция
+
+%%% Если диплом получается очень маленький, 
+%%% смело увеличивай шрифт до 14го
+\documentclass[xetex,a4paper,12pt]{article} % 12й шрифт
+% Подключение преамбулы с необходимыми пакетами
+\input{pattern/inc/preamble}
+
+\begin{document}
+    %%% Аннотацию добавляешь в папку inc. 
+    %%% Когда будет готово, включишь эту строчку. 
+    \includepdf[]{pattern/inc/Title_list_Masterthesis_Козырева_А.И.pdf} % Титульная страница
+    \includepdf[pages=-]{pattern/inc/Zadanie_Kozyreva.pdf} % Титульная страница
+    \includepdf[pages=-]{pattern/inc/Annotation_Masterthesis_Козырева_А.И.pdf} % Аннотация все страницы
+    
+    %%% В наш год положение о ВКР требовала именно такой 
+    %%% последовательности секций работы.
+    %\input{pattern/inc/0-Assignment} % Задание ВКР
+    \input{pattern/inc/0.2-Annotation} % Аннотация
+    \tableofcontents % Содержание 
+    \clearpage
+    \input{pattern/inc/0.1-glossary} % Перечень сокращений и условных обозначений
+    
+    
+    \input{pattern/inc/1.0-intro} % Введение
+    \input{pattern/inc/1.1-lit_review} % Литературный обзор
+    \input{pattern/inc/2-matherials-and-methods} % Материалы и методы
+    \input{pattern/inc/3-results} % Результаты эксперимента 
+    \input{pattern/inc/4-discussion} % Выводы
+    \input{pattern/inc/99-conclusion} % Заключение
+    
+    \input{pattern/inc/0-bibliography} % Подключение библиографии
+    
+    \input{pattern/inc/a-app} % Подключение приложения
+    \input{pattern/pattern/inc/b-app} % Подключение приложения
+        \input{pattern/pattern/inc/b1-app} % Подключение приложения
+
+\end{document}
